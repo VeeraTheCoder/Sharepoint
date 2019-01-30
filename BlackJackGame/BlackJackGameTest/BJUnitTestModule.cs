@@ -1,4 +1,10 @@
-﻿using System;
+﻿// <copyright file="BlackJackGameEngine.cs" company="GitHub/VeeraTheCoder">
+// Copyright (c) 2019 All Rights Reserved
+// </copyright>
+// <author>VEERARAJENDRAN J</author>
+// <date>01/31/2019 12:39:58 AM </date>
+// <summary>Class representing a Sample entity</summary>
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BlackJackGame;
 namespace BlackJackGameTest
@@ -48,21 +54,37 @@ namespace BlackJackGameTest
             Assert.AreEqual(actualResult, expectedResult);
         }
         [TestMethod]
-        public void UnitTestMethod_CheckDoDoubleSuccess()
+        public void UnitTestMethod_DoDoubleForPlayerSuccess()
         {
             BlackJackGameEngine BJEngineObj = new BlackJackGameEngine();
             ExpectedResult = true;
-           bool PlayerDoubleStatus = BJEngineObj.DoDouble(16,17,out int dealerValue, out int playerValue);
+           bool PlayerDoubleStatus = BJEngineObj.DoDoubleForPlayer(16,out int playerValue);
             Assert.AreEqual(PlayerDoubleStatus, ExpectedResult);
         }
         [TestMethod]
-        public void UnitTestMethod_CheckDoDoubleFail()
+        public void UnitTestMethod_DoDoubleForPlayerFail()
         {
             BlackJackGameEngine BJEngineObj = new BlackJackGameEngine();
             ExpectedResult = false;
-            bool PlayerDoubleStatus = BJEngineObj.DoDouble(16, 18, out int dealerValue, out int playerValue);
+            bool PlayerDoubleStatus = BJEngineObj.DoDoubleForPlayer(18,out int playerValue);
             Assert.AreEqual(PlayerDoubleStatus, ExpectedResult);
         }
+        //[TestMethod]
+        //public void UnitTestMethod_DoDoubleForDealerSuccess()
+        //{
+        //    BlackJackGameEngine BJEngineObj = new BlackJackGameEngine();
+        //    ExpectedResult = true;
+        //    bool DealerDoubleStatus = BJEngineObj.DoDoubleForDealer(17, out int dealerValue);
+        //    Assert.AreEqual(DealerDoubleStatus, ExpectedResult);
+        //}
+        //[TestMethod]
+        //public void UnitTestMethod_DoDoubleForDealerFail()
+        //{
+        //    BlackJackGameEngine BJEngineObj = new BlackJackGameEngine();
+        //    ExpectedResult = false;
+        //    bool DealerDoubleStatus = BJEngineObj.DoDoubleForDealer(18, out int dealerValue);
+        //    Assert.AreEqual(DealerDoubleStatus, ExpectedResult);
+        //}
         [TestMethod]
         public void UnitTestMethod_CheckDoubleClaimLimitForPlayerSuccess()
         {
