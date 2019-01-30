@@ -1,0 +1,6 @@
+C:\Users\jveer\source\repos\BlackJackGame\BlackJackGame\bin\Debug\BlackJackGame.exe.config
+C:\Users\jveer\source\repos\BlackJackGame\BlackJackGame\bin\Debug\BlackJackGame.exe
+C:\Users\jveer\source\repos\BlackJackGame\BlackJackGame\bin\Debug\BlackJackGame.pdb
+C:\Users\jveer\source\repos\BlackJackGame\BlackJackGame\obj\Debug\BlackJackGame.csproj.CoreCompileInputs.cache
+C:\Users\jveer\source\repos\BlackJackGame\BlackJackGame\obj\Debug\BlackJackGame.exe
+C:\Users\jveer\source\repos\BlackJackGame\BlackJackGame\obj\Debug\BlackJackGame.pdb
