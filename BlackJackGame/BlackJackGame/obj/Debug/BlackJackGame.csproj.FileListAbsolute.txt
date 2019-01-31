@@ -10,3 +10,4 @@ C:\Users\jveer\Documents\GitHub\Sharepoint\BlackJackGame\BlackJackGame\bin\Debug
 C:\Users\jveer\Documents\GitHub\Sharepoint\BlackJackGame\BlackJackGame\obj\Debug\BlackJackGame.csproj.CoreCompileInputs.cache
 C:\Users\jveer\Documents\GitHub\Sharepoint\BlackJackGame\BlackJackGame\obj\Debug\BlackJackGame.exe
 C:\Users\jveer\Documents\GitHub\Sharepoint\BlackJackGame\BlackJackGame\obj\Debug\BlackJackGame.pdb
+C:\Users\jveer\Documents\GitHub\Sharepoint\BlackJackGame\BlackJackGame\obj\Debug\BlackJackGame.csprojAssemblyReference.cache

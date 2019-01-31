@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BlackJackGame
@@ -26,7 +27,7 @@ namespace BlackJackGame
         {
             
             
-            // Step 1 : Assign Random cards to dealer and Player (two Cards - Here Random number <= 21)
+            
             Console.WriteLine("********* WELCOME TO BLACK JACK CONSOLE GAME*************");
             Console.WriteLine("*********PRESS ANY KEY TO START, PRESS X TO EXIT**************");
 
@@ -36,18 +37,14 @@ namespace BlackJackGame
             {
 
             
-            while (Choice != "X")
+            while (Choice != "x")
             {
                 if (Choice != "Continue")
                 {
-                        //Console.WriteLine("Card Issued for Dealer");
+                        
                         PlayerValue = GenerateRandomNumberForPlayer();
                         DealerValue = GenerateRandomNumberForDealer();
-                    //Console.WriteLine("Press any key to issue card to player");
-                    //Console.ReadLine();
-                    
-
-                    //Console.WriteLine("Your Card Value is " + PlayerValue);
+                   
 
                         bool isBlackJack = CheckBlackJack(PlayerValue);
                     if (isBlackJack)
@@ -66,7 +63,7 @@ namespace BlackJackGame
                 }
                 else
                 {
-                    //Console.WriteLine("Your Card Value is " + PlayerValue);
+                    
                     Console.WriteLine("Do you want another card (y/n)? ");
 
                     Choice = Console.ReadLine();
@@ -82,7 +79,15 @@ namespace BlackJackGame
                             DealerValue = NewDealerValue;
                         }
                     Status s;
-                    s = CheckStatus(DealerValue, PlayerValue);
+                        BustStatus = CheckBust(DealerValue);
+                        if (BustStatus)
+                        {
+                            Console.WriteLine("You Won!!!, Computer got busted");
+                            Console.WriteLine("*****Press any key to exit*****");
+                            Console.ReadLine();
+                            break;
+                        }
+                        s = CheckStatus(DealerValue, PlayerValue);
 
                     if (s == Status.DEALERWINS)
                     {
@@ -127,28 +132,19 @@ namespace BlackJackGame
                     {
 
 
-                            //DoDouble(DealerValue, PlayerValue, out NewDealerValue, out NewPlayerValue);
+                        
                         DoDoubleForPlayer(PlayerValue, out NewPlayerValue);
                         BustStatus = CheckBust(NewPlayerValue);
                         if (BustStatus)
                         {
-                            Console.WriteLine("Game Over!!!, Player1 got busted");
+                            Console.WriteLine("Game Over!!!, you got busted");
                             Console.WriteLine("*****Press any key to exit*****");
                             Console.ReadLine();
                             break;
                         }
-                            #region Commented Portion
-                            //BustStatus = CheckBust(NewDealerValue);
-                            //if (BustStatus)
-                            //{
-                            //    Console.WriteLine("Player1 have won, Dealer got Busted!!!!!!");
-                            //    Console.WriteLine("*****Press any key to exit*****");
-                            //    Console.ReadLine();
-                            //    break;
-                            //} 
-                            #endregion
+                           
                             Choice = "Continue";
-                        //DealerValue = NewDealerValue;
+                        
                         PlayerValue = NewPlayerValue;
                     }
                     else
@@ -165,7 +161,8 @@ namespace BlackJackGame
                 {
                     Console.WriteLine("Enter y or n as choice, x to exit");
                     Choice = Console.ReadLine();
-                }
+                    Choice = "Continue";
+                    }
                 
                 
             }
@@ -217,7 +214,7 @@ namespace BlackJackGame
             {
 
             
-            //Console.WriteLine("Card Shuffled For Player");
+            
             
                 firstCard = rGen.Next(1, 10);
                 secondCard = rGen.Next(1,10);
@@ -238,7 +235,7 @@ namespace BlackJackGame
             {
 
 
-                //Console.WriteLine("Card Shuffled For Player");
+                
                 
                 firstCard = rGen.Next(1, 10);
                 secondCard = rGen.Next(1, 10);
@@ -252,49 +249,7 @@ namespace BlackJackGame
             return firstCard + secondCard;
         }
 
-        #region Deprecated Method
-        //static bool CheckRandomNumberMaxLimit(int Number)
-        //{
-        //    return true;
-        //}
-        #endregion
-
-
-
-        #region Commented Method -- Deprecated
-        //public override bool DoDouble(int DealerValue, int PlayerValue, out int NewDealerValue, out int NewPlayerValue)
-        //  {
-        //      // Here Another number will be generated but max will be 11 and will be added to Player's existing total
-
-        //      try
-        //      {
-
-        //     if(PlayerValue <=17)
-        //          { 
-        //      int rInt = 0;
-        //      Random r = new Random();
-        //      rInt = r.Next(1, 11);
-        //      NewPlayerValue = rInt + PlayerValue;
-
-        //      NewDealerValue = r.Next(1, 11) + DealerValue;
-        //              return true;
-        //          }
-        //     else
-        //          {
-        //              NewDealerValue = DealerValue;
-        //              NewPlayerValue = PlayerValue;
-        //              return false;
-        //          }
-        //      }
-        //      catch (Exception ex)
-        //      {
-
-        //          throw ex;
-        //      }
-        //  } 
-        #endregion
-
-        public override bool DoDoubleForPlayer(int PlayerValue, out int NewPlayerValue)
+       public override bool DoDoubleForPlayer(int PlayerValue, out int NewPlayerValue)
         {
             try
             {
@@ -302,8 +257,8 @@ namespace BlackJackGame
                 if (PlayerValue <= 17)
                 {
                     int rInt = 0;
-                    Random r = new Random();
-                    rInt = r.Next(1, 10);
+                    
+                    rInt = rGen.Next(1, 10);
                     
                     NewPlayerValue = rInt + PlayerValue;
                     Console.WriteLine("Hit: "+rInt+" Your total is " +NewPlayerValue);
@@ -331,8 +286,8 @@ namespace BlackJackGame
 
                
                     int rInt = 0;
-                    Random r = new Random();
-                    rInt = r.Next(1, 10);
+                    Thread.Sleep(500);    
+                    rInt = rGen.Next(1, 10);
 
                     NewDealerValue = rInt + DealerValue;
                     Console.WriteLine("The Computer takes a card : " +rInt);
@@ -350,7 +305,7 @@ namespace BlackJackGame
 
         public override bool CheckBust(int CardValue)
         {
-            // Here we will check whether player's Card value crossed 21
+            
             try
             {
 

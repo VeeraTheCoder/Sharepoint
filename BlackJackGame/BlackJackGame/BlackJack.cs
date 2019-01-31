@@ -29,8 +29,8 @@ namespace BlackJackGame
 
       public abstract void PlayGame();
 
-        // static methods cannot be marked as abstract
-        //public abstract bool DoDouble(int DealerValue, int PlayerValue, out int NewDealerValue, out int NewPlayerValue);
+        
+        
         public abstract bool DoDoubleForPlayer(int PlayerValue, out int NewPlayerValue);
         public abstract bool DoDoubleForDealer(int PlayerValue, out int NewPlayerValue);
         public abstract bool CheckBust(int CardValue);
@@ -38,7 +38,7 @@ namespace BlackJackGame
        public Status CheckStatus(int DealerValue, int playerCardValue)
         {
 
-            // Check Draw or Win Status
+            
             try
             {
 

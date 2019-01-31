@@ -69,22 +69,7 @@ namespace BlackJackGameTest
             bool PlayerDoubleStatus = BJEngineObj.DoDoubleForPlayer(18,out int playerValue);
             Assert.AreEqual(PlayerDoubleStatus, ExpectedResult);
         }
-        //[TestMethod]
-        //public void UnitTestMethod_DoDoubleForDealerSuccess()
-        //{
-        //    BlackJackGameEngine BJEngineObj = new BlackJackGameEngine();
-        //    ExpectedResult = true;
-        //    bool DealerDoubleStatus = BJEngineObj.DoDoubleForDealer(17, out int dealerValue);
-        //    Assert.AreEqual(DealerDoubleStatus, ExpectedResult);
-        //}
-        //[TestMethod]
-        //public void UnitTestMethod_DoDoubleForDealerFail()
-        //{
-        //    BlackJackGameEngine BJEngineObj = new BlackJackGameEngine();
-        //    ExpectedResult = false;
-        //    bool DealerDoubleStatus = BJEngineObj.DoDoubleForDealer(18, out int dealerValue);
-        //    Assert.AreEqual(DealerDoubleStatus, ExpectedResult);
-        //}
+        
         [TestMethod]
         public void UnitTestMethod_CheckDoubleClaimLimitForPlayerSuccess()
         {
